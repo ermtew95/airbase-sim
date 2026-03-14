@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://n65o6hhk252a"]
+
+[ext_resource type="Script" uid="uid://bpvrouirfra3h" path="res://scripts/entities/base.gd" id="1_6miug"]
+
+[node name="Base" type="Node2D" unique_id=1373062075]
+script = ExtResource("1_6miug")
+
+[node name="FuelDepotMarker" type="Marker2D" parent="." unique_id=1927369640]
+
+[node name="AmmoDepotMarker" type="Marker2D" parent="." unique_id=2128715257]
+
+[node name="ServiceBay1" type="Marker2D" parent="." unique_id=504348443]
+
+[node name="ServiceBay2" type="Marker2D" parent="." unique_id=1614682902]
+
+[node name="Parking1" type="Marker2D" parent="." unique_id=1804268067]
+
+[node name="Parking2" type="Marker2D" parent="." unique_id=1758399535]
+
+[node name="Parking3" type="Marker2D" parent="." unique_id=932143658]

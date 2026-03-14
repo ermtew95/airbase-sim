@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://c0ge611d3j6f8"]
+
+[ext_resource type="Texture2D" uid="uid://b30nh5hgqdijq" path="res://assets/airbase_background.png" id="1_q24mn"]
+[ext_resource type="Script" uid="uid://dr7wbqxvonlxg" path="res://scripts/core/simulation_manager.gd" id="1_u1xfj"]
+[ext_resource type="Texture2D" uid="uid://dce51f8wihk7g" path="res://assets/europe_map.png" id="2_gyg6b"]
+[ext_resource type="PackedScene" uid="uid://n65o6hhk252a" path="res://scenes/entities/Base.tscn" id="3_gyg6b"]
+[ext_resource type="Script" uid="uid://v0xu55ywse24" path="res://scripts/ui/hud.gd" id="4_dc040"]
+
+[node name="Main" type="Node2D" unique_id=616560758]
+
+[node name="World" type="Node2D" parent="." unique_id=1845407846]
+
+[node name="AirbaseSprite" type="Sprite2D" parent="World" unique_id=838496639]
+position = Vector2(293.5, 323)
+scale = Vector2(0.75884664, 0.629521)
+texture = ExtResource("1_q24mn")
+
+[node name="MapSprite" type="Sprite2D" parent="World" unique_id=1474619282]
+position = Vector2(867, 324.5)
+scale = Vector2(0.7389033, 0.63111544)
+texture = ExtResource("2_gyg6b")
+
+[node name="Base" parent="World" unique_id=1373062075 instance=ExtResource("3_gyg6b")]
+position = Vector2(293.5, 323)
+scale = Vector2(0.759, 0.63)
+
+[node name="FuelDepotMarker" parent="World/Base" index="0" unique_id=1927369640]
+position = Vector2(-247.03557, -317.46033)
+
+[node name="AmmoDepotMarker" parent="World/Base" index="1" unique_id=2128715257]
+position = Vector2(247.03557, -307.9365)
+
+[node name="ServiceBay1" parent="World/Base" index="2" unique_id=504348443]
+position = Vector2(-141.63373, -312.69843)
+
+[node name="ServiceBay2" parent="World/Base" index="3" unique_id=1614682902]
+position = Vector2(-19.104084, -314.2857)
+
+[node name="Parking1" parent="World/Base" index="4" unique_id=1804268067]
+position = Vector2(-256.2582, 246.03174)
+
+[node name="Parking2" parent="World/Base" index="5" unique_id=1758399535]
+position = Vector2(-175.88933, 244.44444)
+
+[node name="Parking3" parent="World/Base" index="6" unique_id=932143658]
+position = Vector2(-91.567856, 246.03174)
+
+[node name="Parking4" type="Marker2D" parent="World/Base" unique_id=1854353961]
+position = Vector2(-11.198945, 244.44446)
+
+[node name="RunwayStart" type="Marker2D" parent="World/Base" unique_id=1967989757]
+position = Vector2(-261.52832, 393.6508)
+
+[node name="RunwayEnd" type="Marker2D" parent="World/Base" unique_id=1451978158]
+position = Vector2(295.7839, 390.4762)
+
+[node name="SimulationManager" type="Node" parent="." unique_id=1900447135]
+script = ExtResource("1_u1xfj")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1937366694]
+position = Vector2(576, 324)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=8856624]
+script = ExtResource("4_dc040")
+
+[node name="AircraftPanel" type="Panel" parent="HUD" unique_id=681215328]
+offset_left = 584.0
+offset_right = 953.0
+offset_bottom = 141.0
+
+[node name="AircraftLabel" type="Label" parent="HUD/AircraftPanel" unique_id=697027117]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 188.0
+offset_bottom = 33.0
+text = "AIRCRAFT"
+
+[node name="QueuePanel" type="Panel" parent="HUD" unique_id=138632068]
+offset_left = 582.0
+offset_top = 382.0
+offset_right = 880.0
+offset_bottom = 646.0
+
+[node name="QueueLabel" type="Label" parent="HUD/QueuePanel" unique_id=1196028513]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 189.0
+offset_bottom = 210.0
+text = "QUEUES"
+
+[node name="MissionPanel" type="Panel" parent="HUD" unique_id=796898311]
+offset_left = 1.0
+offset_top = 225.0
+offset_right = 583.0
+offset_bottom = 352.0
+
+[node name="MissionLabel" type="Label" parent="HUD/MissionPanel" unique_id=46069542]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="MissionControlPanel" type="Panel" parent="HUD" unique_id=1582149465]
+offset_left = 956.0
+offset_top = 2.0
+offset_right = 1151.0
+offset_bottom = 182.0
+
+[node name="MissionTypePicker" type="OptionButton" parent="HUD/MissionControlPanel" unique_id=748812837]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 190.0
+offset_bottom = 40.0
+
+[node name="AircraftTypePicker" type="OptionButton" parent="HUD/MissionControlPanel" unique_id=1806800032]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 190.0
+offset_bottom = 80.0
+
+[node name="AircraftCountSpinBox" type="SpinBox" parent="HUD/MissionControlPanel" unique_id=1970433926]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 90.0
+offset_right = 96.5
+offset_bottom = 121.0
+
+[node name="PlaceMissionButton" type="Button" parent="HUD/MissionControlPanel" unique_id=1175178979]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 130.0
+offset_right = 190.0
+offset_bottom = 160.0
+text = "Place Mission On Map"
+
+[node name="MissionModeLabel" type="Label" parent="HUD/MissionControlPanel" unique_id=1711899359]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 10.0
+offset_right = 310.0
+offset_bottom = 110.0
+text = "Idle"
+
+[node name="AircraftControlPanel" type="Panel" parent="HUD" unique_id=495255655]
+offset_left = 584.0
+offset_top = 296.0
+offset_right = 735.0
+offset_bottom = 385.0
+
+[node name="AircraftSpawnPicker" type="OptionButton" parent="HUD/AircraftControlPanel" unique_id=424941839]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 110.0
+offset_bottom = 40.0
+
+[node name="AddAirCraftButton" type="Button" parent="HUD/AircraftControlPanel" unique_id=2126006310]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 111.0
+offset_bottom = 81.0
+text = "Add Aircraft"
+
+[node name="FleetPanel" type="Panel" parent="HUD" unique_id=2038202781]
+offset_left = 586.0
+offset_top = 142.0
+offset_right = 871.0
+offset_bottom = 295.0
+
+[node name="FleetLabel" type="Label" parent="HUD/FleetPanel" unique_id=470133964]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FLEET"
+
+[editable path="World/Base"]

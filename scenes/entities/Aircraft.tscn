@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bq7s40nprag06"]
+
+[ext_resource type="Script" uid="uid://drs1hbt83l0ct" path="res://scripts/entities/aircraft.gd" id="1_1g8ca"]
+[ext_resource type="Texture2D" uid="uid://c4fbnhmii8cd0" path="res://assets/aircraft.png" id="2_axq3e"]
+
+[node name="Aircraft" type="Node2D" unique_id=1168462551]
+script = ExtResource("1_1g8ca")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1916835012]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_axq3e")
